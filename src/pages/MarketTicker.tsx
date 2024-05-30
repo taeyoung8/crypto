@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import '../App.css'; // CSS 파일 import
 
@@ -10,7 +10,7 @@ const MarketTicker: React.FC = () => {
   const [lowerLimit, setLowerLimit] = useState<number | null>(null);
   const [currentPrice, setCurrentPrice] = useState<number | null>(null);
 
-  const fetchCurrentPrice = async () => {
+  const fetchCurrentPrice = useCallback(async () => {
     try {
       const response = await axios.get(`https://api.coingecko.com/api/v3/simple/price`, {
         params: {
@@ -29,7 +29,7 @@ const MarketTicker: React.FC = () => {
     } catch (err) {
       console.error('Failed to fetch current price:', err);
     }
-  };
+  }, [coinId, currency, upperLimit, lowerLimit]);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -44,9 +44,9 @@ const MarketTicker: React.FC = () => {
 
   useEffect(() => {
     fetchCurrentPrice();
-    const interval = setInterval(fetchCurrentPrice, 10000); // 10sec
+    const interval = setInterval(fetchCurrentPrice, 10000); // 10초마다 가격 갱신
     return () => clearInterval(interval);
-  }, [coinId, currency, fetchCurrentPrice]);
+  }, [fetchCurrentPrice]);
 
   return (
     <div>
