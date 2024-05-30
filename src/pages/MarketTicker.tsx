@@ -46,7 +46,7 @@ const MarketTicker: React.FC = () => {
     fetchCurrentPrice();
     const interval = setInterval(fetchCurrentPrice, 10000); // 10sec
     return () => clearInterval(interval);
-  }, [coinId, currency]);
+  }, [coinId, currency, fetchCurrentPrice]);
 
   return (
     <div>
