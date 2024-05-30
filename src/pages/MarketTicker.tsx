@@ -26,7 +26,6 @@ const MarketTicker: React.FC = () => {
       if (lowerLimit !== null && price < lowerLimit) {
         alert(`Alert: ${coinId} price is below ${lowerLimit} ${currency.toUpperCase()}`);
       }
-      console.log(price);
     } catch (err) {
       console.error('Failed to fetch current price:', err);
     }
@@ -46,6 +45,7 @@ const MarketTicker: React.FC = () => {
   useEffect(() => {
     fetchCurrentPrice();
     const interval = setInterval(fetchCurrentPrice, 10000); // 10초마다 가격 갱신
+    console.log(currentPrice);
     return () => clearInterval(interval);
   }, [fetchCurrentPrice]);
 
