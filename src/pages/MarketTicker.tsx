@@ -8,7 +8,6 @@ const MarketTicker: React.FC = () => {
   const [locale, setLocale] = useState('en');
   const [upperLimit, setUpperLimit] = useState<number | null>(null);
   const [lowerLimit, setLowerLimit] = useState<number | null>(null);
-  const [currentPrice, setCurrentPrice] = useState<number | null>(null);
 
   const fetchCurrentPrice = useCallback(async () => {
     try {
@@ -19,7 +18,6 @@ const MarketTicker: React.FC = () => {
         },
       });
       const price = response.data[coinId][currency];
-      setCurrentPrice(price);
       if (upperLimit !== null && price > upperLimit) {
         alert(`Alert: ${coinId} price exceeds ${upperLimit} ${currency.toUpperCase()}`);
       }
