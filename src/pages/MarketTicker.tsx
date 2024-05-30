@@ -26,6 +26,7 @@ const MarketTicker: React.FC = () => {
       if (lowerLimit !== null && price < lowerLimit) {
         alert(`Alert: ${coinId} price is below ${lowerLimit} ${currency.toUpperCase()}`);
       }
+      console.log(currentPrice);
     } catch (err) {
       console.error('Failed to fetch current price:', err);
     }
@@ -86,6 +87,7 @@ const MarketTicker: React.FC = () => {
           </label>
         </div>
       </div>
+
       <div className='row-container'>
         <div>
           <label>
