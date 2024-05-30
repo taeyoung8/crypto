@@ -106,3 +106,39 @@ img {
 span {
   margin-right: 15px;
 }
+
+.page {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.page h1 {
+  text-align: center;
+  color: #333;
+}
+.page h2 {
+  text-align: center;
+}
+
+.page a {
+  text-decoration: none;
+  text-align: center;
+  color: #007bff;
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.page a:hover {
+  background-color: #f0f0f0;
+}
+
+.h2 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}

@@ -48,7 +48,7 @@ const MarketTicker: React.FC = () => {
   }, [fetchCurrentPrice]);
 
   return (
-    <div>
+    <div className='page'>
       <h2>Market Ticker</h2>
       <div className='row-container'>
         <div>
